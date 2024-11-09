@@ -62,20 +62,16 @@ class MenuButtonActions {
   setFocusToMenuitem(newMenuitem) {
     this.menuitemNodes.forEach(function (item) {
 // R.G. Here to add the roving tabindex logic  ;)
-
-    this.menuitemNodes.forEach(item => {
-      item.tabIndex = -1; // Reset all items
-      item.setAttribute('aria-checked', 'false'); //
+      item.tabIndex = -1; // Reset all items' tabindex to -1
+      item.setAttribute('aria-checked', 'false'); // Reset aria-checked
     });
-
     // Set tabindex=0 on the newly focused menu item
     newMenuitem.tabIndex = 0; // Focus this item
     newMenuitem.setAttribute('aria-checked', 'true'); // Set aria-checked for accessibility
     newMenuitem.focus(); // Set focus to the new item    
-      
-    });
+     
   }
-
+  
   setFocusToFirstMenuitem() {
     this.setFocusToMenuitem(this.firstMenuitem);
   }
